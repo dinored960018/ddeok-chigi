@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>떡치기</title>
 <style>
-  html, body { margin: 0; height: 100%; overflow: hidden; background: #fafaf7;
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #a9a9a9;
     font-family: system-ui, "Malgun Gothic", sans-serif;
     user-select: none; -webkit-user-select: none; touch-action: none; }
   #count { position: fixed; top: 6vh; left: 0; right: 0; text-align: center;
@@ -42,7 +42,7 @@ Object.assign(sun.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near:
 scene.add(sun);
 
 // 바닥은 안 보이고 그림자만
-const ground = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.ShadowMaterial({ opacity: 0.12 }));
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.ShadowMaterial({ opacity: 0.25 }));
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
