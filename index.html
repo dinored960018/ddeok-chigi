@@ -16,14 +16,6 @@
   #bar { width: min(60vw, 480px); height: 14px; margin: 12px auto 0; border-radius: 7px;
     background: rgba(0,0,0,.18); overflow: hidden; }
   #fill { height: 100%; width: 100%; border-radius: 7px; background: #4caf50; }
-  .pl { position: fixed; bottom: 5vh; padding: 12px 20px; border-radius: 14px; text-align: center;
-    background: rgba(255,255,255,.2); color: #3a342f; transform: scale(.92);
-    transition: transform .1s, background .1s; pointer-events: none; }
-  .pl.on { color: #2b2622; transform: scale(1.05); background: rgba(255,255,255,.85); }
-  .pl b { display: block; font-size: 20px; }
-  .pl span { font-size: 13px; }
-  #p0 { left: 4vw; }
-  #p1 { right: 4vw; }
   #msg { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center;
     justify-content: center; pointer-events: none; text-align: center; padding: 0 16px; }
   #big { font-size: clamp(36px, 8vw, 80px); font-weight: 900; text-shadow: 0 2px 0 rgba(255,255,255,.5); }
@@ -42,9 +34,10 @@
   <div id="comboLabel">COMBO</div>
   <div id="bar"><div id="fill"></div></div>
 </div>
-<div class="pl" id="p0"><b>1P 떡메</b><span>A 키 · 왼쪽 터치</span></div>
-<div class="pl" id="p1"><b>2P 손</b><span>L 키 · 오른쪽 터치</span></div>
-<div id="msg"><div id="card"><div id="big">2인 떡치기</div><div id="sub">떡메와 손이 번갈아 치기
+<div id="msg"><div id="card"><div id="big">2인 떡치기</div><div id="sub">1P 떡메: A 키 · 왼쪽 터치
+2P 손: L 키 · 오른쪽 터치
+
+떡메와 손이 번갈아 치기
 같은 쪽이 두 번 치거나 게이지가 다 닳으면 그 사람이 패배
 
 아무 키나 눌러 시작</div></div></div>
@@ -194,8 +187,6 @@ function drainRate() { return Math.min(2.2, 0.35 + combo * 0.012); } // 콤보�
 function show(big, sub) { $('big').textContent = big; $('sub').textContent = sub || ''; }
 function updateHud() {
   $('combo').textContent = combo;
-  $('p0').classList.toggle('on', state === 'play' && turn === 0);
-  $('p1').classList.toggle('on', state === 'play' && turn === 1);
 }
 
 function startCountdown() {

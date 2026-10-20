@@ -13,10 +13,12 @@
     pointer-events: none; transition: transform .08s ease-out; }
   #count.pop { transform: scale(1.15); transition: none; }
   canvas { display: block; }
+  #duo { position: fixed; top: 12px; right: 14px; font-size: 13px; color: #2b2622; }
 </style>
 </head>
 <body>
 <div id="count">0</div>
+<a id="duo" href="./">둘이 치기 ♥</a>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const scene = new THREE.Scene();
