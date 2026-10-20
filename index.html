@@ -254,7 +254,7 @@ canvas.addEventListener('pointerdown', e => {
     canvas.style.cursor = 'grabbing';
     return;
   }
-  if (e.button !== 0) return;
+  if (e.pointerType !== 'touch') return; // PC는 A·L 키로만, 휴대폰은 좌우 터치
   act(e.clientX < innerWidth / 2 ? 0 : 1);
 });
 canvas.addEventListener('pointermove', e => {
